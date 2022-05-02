@@ -1,0 +1,26 @@
+svk@Lenovo-Desktop:/mnt/e/viveks/AWS_Udacity/Cloud DevOps Engineer/Project4/DevOps_Microservices/project-ml-microservice-kubernetes$ ./run_kubernetes.sh
+pod/udacity-devops-p4 created
+NAME                READY   STATUS              RESTARTS   AGE
+udacity-devops-p4   0/1     ContainerCreating   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+
+svk@Lenovo-Desktop:/mnt/e/viveks/AWS_Udacity/Cloud DevOps Engineer/Project4/DevOps_Microservices/project-ml-microservice-kubernetes$ kubectl get pods
+NAME                READY   STATUS    RESTARTS   AGE
+udacity-devops-p4   1/1     Running   0          24s
+
+svk@Lenovo-Desktop:/mnt/e/viveks/AWS_Udacity/Cloud DevOps Engineer/Project4/DevOps_Microservices/project-ml-microservice-kubernetes$ ./run_kubernetes.sh
+Error from server (AlreadyExists): pods "udacity-devops-p4" already exists
+NAME                READY   STATUS    RESTARTS   AGE
+udacity-devops-p4   1/1     Running   0          28s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+
+svk@Lenovo-Desktop:/mnt/e/viveks/AWS_Udacity/Cloud DevOps Engineer/Project4/DevOps_Microservices/project-ml-microservice-kubernetes$ ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
