@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/svk100/Udacity-DevOps-Project4.svg?style=svg)](https://circleci.com/gh/svk100/Udacity-DevOps-Project4/tree/main)
 
 ## Project Overview
 
@@ -23,6 +23,25 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ---
 
+Files
+
+/.circleci 
+  config.yml: CircleCI configuration file
+/model_data : Housing model data from [here] (https://www.kaggle.com/c/boston-housing)
+/output_txt_files
+  docker_out.txt: Output of run_docker.sh
+  kubernetes_out.txt: Output of run_kubernetes.sh and make_prediction.sh
+
+Dockerfile : Docker config for building the pythn app image
+Makefile : Instructions on environment setup and lint tests
+Readme.md: This file
+app.py : The main python code that makes predictions
+make_prediction.sh : Used to test the app by sending a request to localhost:8000
+requirements.txt : List of dependencies for the python app
+run_docker.sh : Script to create docker image
+run_kubernetes.sh : Script to create kubernetes pod
+upload_docker.sh : Script to push docker image to docker hub
+
 ## Setup the Environment
 
 * Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
@@ -33,8 +52,10 @@ python3 -m pip install --user virtualenv
 # Use a command similar to this one:
 python3 -m virtualenv --python=<path-to-Python3.7> .devops
 source .devops/bin/activate
+deactivate to exit the virtual environment
 ```
 * Run `make install` to install the necessary dependencies
+* IF higher verson of python is used you may get issues installing dependencies, so use python 3.7
 
 ### Running `app.py`
 
@@ -48,3 +69,7 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+Note: Durng testig you may end up with several docker containers, use the command below to delete them all
+USE CAUTION RUNNING THE COMMAND BELOW, IT DELETES ALL CONTAINERS
+docker rm -f $(docker ps -a -q)
