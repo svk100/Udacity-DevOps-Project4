@@ -25,22 +25,20 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 Files
 
-/.circleci 
-  config.yml: CircleCI configuration file
-/model_data : Housing model data from [here] (https://www.kaggle.com/c/boston-housing)
-/output_txt_files
-  docker_out.txt: Output of run_docker.sh
-  kubernetes_out.txt: Output of run_kubernetes.sh and make_prediction.sh
-
-Dockerfile : Docker config for building the pythn app image
-Makefile : Instructions on environment setup and lint tests
-Readme.md: This file
-app.py : The main python code that makes predictions
-make_prediction.sh : Used to test the app by sending a request to localhost:8000
-requirements.txt : List of dependencies for the python app
-run_docker.sh : Script to create docker image
-run_kubernetes.sh : Script to create kubernetes pod
-upload_docker.sh : Script to push docker image to docker hub
+* /.circleci/config.yml: CircleCI configuration file
+* /model_data : Housing model data from [here] (https://www.kaggle.com/c/boston-housing)
+* /output_txt_files
+*  docker_out.txt: Output of run_docker.sh
+*  kubernetes_out.txt: Output of run_kubernetes.sh and make_prediction.sh
+* Dockerfile : Docker config for building the pythn app image
+* Makefile : Instructions on environment setup and lint tests
+* Readme.md: This file
+* app.py : The main python code that makes predictions
+* make_prediction.sh : Used to test the app by sending a request to localhost:8000
+* requirements.txt : List of dependencies for the python app
+* run_docker.sh : Script to create docker image
+* run_kubernetes.sh : Script to create kubernetes pod
+* upload_docker.sh : Script to push docker image to docker hub
 
 ## Setup the Environment
 
@@ -65,11 +63,11 @@ deactivate to exit the virtual environment
 
 ### Kubernetes Steps
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+* Setup and Configure Docker locally by installing Docker Desktop in case of Windows
+* Setup and Configure Kubernetes locally by installing Docker Desktop in case of Windows and enabling Kubernetes service
+* Create Flask app in Container  by running run_docker.sh
+* Run via kubectl by running run_kubernetes.sh
 
 Note: Durng testig you may end up with several docker containers, use the command below to delete them all
-USE CAUTION RUNNING THE COMMAND BELOW, IT DELETES ALL CONTAINERS
-docker rm -f $(docker ps -a -q)
+* USE CAUTION RUNNING THE COMMAND BELOW, IT DELETES ALL CONTAINERS
+* docker rm -f $(docker ps -a -q)
